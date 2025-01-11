@@ -1,5 +1,4 @@
 // Next Imports
-import { Public_Sans } from 'next/font/google'
 
 // MUI Imports
 import type { Theme } from '@mui/material/styles'
@@ -7,6 +6,8 @@ import type { Theme } from '@mui/material/styles'
 // Type Imports
 import type { Settings } from '@core/contexts/settingsContext'
 import type { SystemMode, Skin } from '@core/types'
+
+import { Public_Sans } from 'next/font/google'
 
 // Theme Options Imports
 import overrides from './overrides'

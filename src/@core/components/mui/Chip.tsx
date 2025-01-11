@@ -1,12 +1,13 @@
 'use client'
 
 // React Imports
+import type { ChipProps } from '@mui/material/Chip'
+
 import React from 'react'
 
 // Mui Imports
 import MuiChip from '@mui/material/Chip'
 import { styled } from '@mui/material'
-import type { ChipProps } from '@mui/material/Chip'
 
 export type CustomChipProps = ChipProps & {
   round?: 'true' | 'false'

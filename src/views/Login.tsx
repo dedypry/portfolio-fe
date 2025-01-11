@@ -133,7 +133,6 @@ const LoginV2 = ({ mode }: { mode: SystemMode }) => {
       redirect: false
     })
 
-    console.log('Response', data, res)
     if (res && res.ok && res.error === null) {
       // Vars
       const redirectURL = searchParams.get('redirectTo') ?? '/home'

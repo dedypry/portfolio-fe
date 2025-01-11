@@ -1,16 +1,17 @@
 'use client'
 
 // React Imports
-import { forwardRef } from 'react'
 import type { ForwardRefRenderFunction, CSSProperties, ReactElement, ReactNode } from 'react'
 
 // Third-party Imports
-import classnames from 'classnames'
 import type { CSSObject } from '@emotion/styled'
 
 // Type Imports
 import type { MenuSectionStyles } from './Menu'
 import type { ChildrenType, RootStylesType } from '../../types'
+
+import classnames from 'classnames'
+import { forwardRef } from 'react'
 
 // Hook Imports
 import useVerticalNav from '../../hooks/useVerticalNav'
@@ -80,9 +81,9 @@ const MenuSection: ForwardRefRenderFunction<HTMLLIElement, MenuSectionProps> = (
     // Menu Section
     <StyledVerticalMenuSection
       ref={ref}
-      rootStyles={rootStyles}
-      menuSectionStyles={getMenuSectionStyles('root')}
       className={classnames(menuClasses.menuSectionRoot, className)}
+      menuSectionStyles={getMenuSectionStyles('root')}
+      rootStyles={rootStyles}
     >
       {/* Menu Section Content Wrapper */}
       <ul className={menuClasses.menuSectionWrapper} {...rest} style={menuSectionWrapperStyles}>
@@ -95,8 +96,8 @@ const MenuSection: ForwardRefRenderFunction<HTMLLIElement, MenuSectionProps> = (
           )}
           {prefix && (
             <StyledMenuPrefix
-              isCollapsed={isCollapsed}
               className={menuClasses.prefix}
+              isCollapsed={isCollapsed}
               rootStyles={getMenuSectionStyles('prefix')}
             >
               {prefix}
@@ -104,9 +105,9 @@ const MenuSection: ForwardRefRenderFunction<HTMLLIElement, MenuSectionProps> = (
           )}
           {collapsedMenuSectionLabel && isCollapsed && !isHovered ? (
             <StyledMenuSectionLabel
+              className={menuClasses.menuSectionLabel}
               isCollapsed={isCollapsed}
               isHovered={isHovered}
-              className={menuClasses.menuSectionLabel}
               rootStyles={getMenuSectionStyles('label')}
               textTruncate={textTruncate}
             >
@@ -115,9 +116,9 @@ const MenuSection: ForwardRefRenderFunction<HTMLLIElement, MenuSectionProps> = (
           ) : (
             label && (
               <StyledMenuSectionLabel
+                className={menuClasses.menuSectionLabel}
                 isCollapsed={isCollapsed}
                 isHovered={isHovered}
-                className={menuClasses.menuSectionLabel}
                 rootStyles={getMenuSectionStyles('label')}
                 textTruncate={textTruncate}
               >
@@ -127,8 +128,8 @@ const MenuSection: ForwardRefRenderFunction<HTMLLIElement, MenuSectionProps> = (
           )}
           {suffix && (
             <StyledMenuSuffix
-              isCollapsed={isCollapsed}
               className={menuClasses.suffix}
+              isCollapsed={isCollapsed}
               rootStyles={getMenuSectionStyles('suffix')}
             >
               {suffix}

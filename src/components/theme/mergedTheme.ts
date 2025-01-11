@@ -1,3 +1,4 @@
+/* eslint-disable import/order */
 /*
  * We recommend using the merged theme if you want to override our core theme.
  * This means you can use our core theme and override it with your own customizations.
@@ -7,12 +8,13 @@
  */
 
 // MUI Imports
-import { deepmerge } from '@mui/utils'
 import type { Theme } from '@mui/material/styles'
 
 // Type Imports
 import type { Settings } from '@core/contexts/settingsContext'
 import type { SystemMode } from '@core/types'
+
+import { deepmerge } from '@mui/utils'
 
 // Core Theme Imports
 import coreTheme from '@core/theme'

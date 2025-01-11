@@ -1,3 +1,4 @@
+/* eslint-disable import/order */
 'use client'
 
 // React Imports
@@ -60,23 +61,23 @@ const ModeDropdown = () => {
   return (
     <>
       <Tooltip
-        title={settings.mode + ' Mode'}
-        onOpen={() => setTooltipOpen(true)}
-        onClose={() => setTooltipOpen(false)}
         open={open ? false : tooltipOpen ? true : false}
         slotProps={{ popper: { className: 'capitalize' } }}
+        title={settings.mode + ' Mode'}
+        onClose={() => setTooltipOpen(false)}
+        onOpen={() => setTooltipOpen(true)}
       >
-        <IconButton ref={anchorRef} onClick={handleToggle} className='text-textPrimary'>
+        <IconButton ref={anchorRef} className='text-textPrimary' onClick={handleToggle}>
           <i className={getModeIcon()} />
         </IconButton>
       </Tooltip>
       <Popper
-        open={open}
-        transition
         disablePortal
-        placement='bottom-start'
+        transition
         anchorEl={anchorRef.current}
         className='min-is-[160px] !mbs-3 z-[1]'
+        open={open}
+        placement='bottom-start'
       >
         {({ TransitionProps, placement }) => (
           <Fade
@@ -88,24 +89,24 @@ const ModeDropdown = () => {
                 <MenuList onKeyDown={handleClose}>
                   <MenuItem
                     className='gap-3'
-                    onClick={() => handleModeSwitch('light')}
                     selected={settings.mode === 'light'}
+                    onClick={() => handleModeSwitch('light')}
                   >
                     <i className='tabler-sun' />
                     Light
                   </MenuItem>
                   <MenuItem
                     className='gap-3'
-                    onClick={() => handleModeSwitch('dark')}
                     selected={settings.mode === 'dark'}
+                    onClick={() => handleModeSwitch('dark')}
                   >
                     <i className='tabler-moon-stars' />
                     Dark
                   </MenuItem>
                   <MenuItem
                     className='gap-3'
-                    onClick={() => handleModeSwitch('system')}
                     selected={settings.mode === 'system'}
+                    onClick={() => handleModeSwitch('system')}
                   >
                     <i className='tabler-device-laptop' />
                     System

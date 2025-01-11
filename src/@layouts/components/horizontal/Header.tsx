@@ -1,14 +1,15 @@
 'use client'
 
 // MUI Imports
+import type { CSSObject } from '@emotion/styled'
+import type { ChildrenType } from '@core/types'
+
 import { useTheme } from '@mui/material/styles'
 
 // Third-party Imports
 import classnames from 'classnames'
-import type { CSSObject } from '@emotion/styled'
 
 // Type Imports
-import type { ChildrenType } from '@core/types'
 
 // Config Imports
 import themeConfig from '@configs/themeConfig'
@@ -45,8 +46,6 @@ const Header = (props: Props) => {
 
   return (
     <StyledHeader
-      theme={theme}
-      overrideStyles={overrideStyles}
       className={classnames(horizontalLayoutClasses.header, {
         [horizontalLayoutClasses.headerFixed]: headerFixed,
         [horizontalLayoutClasses.headerStatic]: headerStatic,
@@ -54,6 +53,8 @@ const Header = (props: Props) => {
         [horizontalLayoutClasses.headerContentCompact]: headerContentCompact,
         [horizontalLayoutClasses.headerContentWide]: headerContentWide
       })}
+      overrideStyles={overrideStyles}
+      theme={theme}
     >
       {children}
     </StyledHeader>

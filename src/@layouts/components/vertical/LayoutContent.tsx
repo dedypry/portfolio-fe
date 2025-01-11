@@ -1,10 +1,11 @@
 'use client'
 
 // Third-party Imports
+import type { ChildrenType } from '@core/types'
+
 import classnames from 'classnames'
 
 // Type Imports
-import type { ChildrenType } from '@core/types'
 
 // Hook Imports
 import { useSettings } from '@core/hooks/useSettings'
@@ -25,11 +26,11 @@ const LayoutContent = ({ children }: ChildrenType) => {
 
   return (
     <StyledMain
-      isContentCompact={contentCompact}
       className={classnames(verticalLayoutClasses.content, 'flex-auto', {
         [`${verticalLayoutClasses.contentCompact} is-full`]: contentCompact,
         [verticalLayoutClasses.contentWide]: contentWide
       })}
+      isContentCompact={contentCompact}
     >
       {children}
     </StyledMain>

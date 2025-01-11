@@ -1,7 +1,6 @@
 'use client'
 
 // React Imports
-import { Children, cloneElement, createContext, forwardRef, useEffect, useRef, useState } from 'react'
 import type {
   AnchorHTMLAttributes,
   ForwardRefRenderFunction,
@@ -13,9 +12,12 @@ import type {
 } from 'react'
 
 // Next Imports
-import { usePathname } from 'next/navigation'
 
 // Third-party Imports
+import type { CSSObject } from '@emotion/styled'
+import type { ChildrenType, RootStylesType, SubMenuItemElement } from '../../types'
+import type { MenuItemProps } from './MenuItem'
+
 import classnames from 'classnames'
 import styled from '@emotion/styled'
 import {
@@ -38,14 +40,13 @@ import {
   useFloatingTree,
   useTransitionStyles
 } from '@floating-ui/react'
-import type { CSSObject } from '@emotion/styled'
 
 // Type Imports
-import type { ChildrenType, RootStylesType, SubMenuItemElement } from '../../types'
-import type { MenuItemProps } from './MenuItem'
+
+import { usePathname } from 'next/navigation'
+import { Children, cloneElement, createContext, forwardRef, useEffect, useRef, useState } from 'react'
 
 // Component Imports
-import SubMenuContent from './SubMenuContent'
 
 // Hook Imports
 import useHorizontalMenu from '../../hooks/useHorizontalMenu'
@@ -55,7 +56,6 @@ import { menuClasses } from '../../utils/menuClasses'
 import { confirmUrlInChildren, renderMenuIcon } from '../../utils/menuUtils'
 
 // Styled Component Imports
-import MenuButton, { menuButtonStyles } from './MenuButton'
 import StyledMenuLabel from '../../styles/StyledMenuLabel'
 import StyledMenuPrefix from '../../styles/StyledMenuPrefix'
 import StyledMenuSuffix from '../../styles/StyledMenuSuffix'
@@ -69,6 +69,9 @@ import ulStyles from '../../styles/horizontal/horizontalUl.module.css'
 
 // Icon Imports
 import ChevronRight from '../../svg/ChevronRight'
+
+import MenuButton, { menuButtonStyles } from './MenuButton'
+import SubMenuContent from './SubMenuContent'
 
 export type SubMenuProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'prefix'> &
   RootStylesType &
@@ -329,6 +332,8 @@ const SubMenu: ForwardRefRenderFunction<HTMLLIElement, SubMenuProps> = (props, r
       {/* Sub Menu */}
       <StyledSubMenu
         {...(!disabled && { ref: referenceRef, ...getReferenceProps() })}
+        active={active}
+        buttonStyles={getSubMenuItemStyles('button')}
         className={classnames(
           { [menuClasses.subMenuRoot]: level === 0 },
           { [menuClasses.active]: active },
@@ -337,18 +342,16 @@ const SubMenu: ForwardRefRenderFunction<HTMLLIElement, SubMenuProps> = (props, r
           ulStyles.li,
           className
         )}
-        menuItemStyles={getSubMenuItemStyles('root')}
-        level={level}
         disabled={disabled}
-        active={active}
-        buttonStyles={getSubMenuItemStyles('button')}
+        level={level}
+        menuItemStyles={getSubMenuItemStyles('root')}
         rootStyles={rootStyles}
       >
         {/* Sub Menu */}
         <MenuButton
-          title={title}
           className={classnames(menuClasses.button, { [menuClasses.active]: active })}
           component={component}
+          title={title}
           onClick={handleOnClick}
           onKeyUp={handleOnKeyUp}
           {...rest}
@@ -366,8 +369,8 @@ const SubMenu: ForwardRefRenderFunction<HTMLLIElement, SubMenuProps> = (props, r
           {/* Sub Menu Prefix */}
           {prefix && (
             <StyledMenuPrefix
-              firstLevel={level === 0}
               className={menuClasses.prefix}
+              firstLevel={level === 0}
               rootStyles={getSubMenuItemStyles('prefix')}
             >
               {prefix}
@@ -386,8 +389,8 @@ const SubMenu: ForwardRefRenderFunction<HTMLLIElement, SubMenuProps> = (props, r
           {/* Sub Menu Suffix */}
           {suffix && (
             <StyledMenuSuffix
-              firstLevel={level === 0}
               className={menuClasses.suffix}
+              firstLevel={level === 0}
               rootStyles={getSubMenuItemStyles('suffix')}
             >
               {suffix}
@@ -422,17 +425,17 @@ const SubMenu: ForwardRefRenderFunction<HTMLLIElement, SubMenuProps> = (props, r
               <StyledSubMenuContentWrapper
                 ref={refs.setFloating}
                 {...getFloatingProps()}
-                style={floatingStyles}
                 rootStyles={getSubMenuItemStyles('subMenuStyles')}
+                style={floatingStyles}
               >
                 <SubMenuContent
-                  open={open}
-                  top={y ? y - window.scrollY : 0}
-                  firstLevel={level === 0}
                   browserScroll={browserScroll}
                   className={classnames(menuClasses.subMenuContent, contentClassName)}
+                  firstLevel={level === 0}
+                  open={open}
                   rootStyles={getSubMenuItemStyles('subMenuContent')}
                   style={{ ...styles }}
+                  top={y ? y - window.scrollY : 0}
                 >
                   {childNodes.map((node, index) =>
                     cloneElement(node, {

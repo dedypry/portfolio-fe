@@ -1,8 +1,9 @@
 // React Imports
+import type { Theme } from '@mui/material/styles'
+
 import React from 'react'
 
 // MUI Imports
-import type { Theme } from '@mui/material/styles'
 
 const alerts: Theme['components'] = {
   MuiAlert: {

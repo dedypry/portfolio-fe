@@ -1,15 +1,16 @@
 'use client'
 
 // React Imports
+import type { AvatarProps } from '@mui/material/Avatar'
+import type { ThemeColor } from '@core/types'
+
 import { forwardRef } from 'react'
 
 // MUI Imports
 import MuiAvatar from '@mui/material/Avatar'
 import { lighten, styled } from '@mui/material/styles'
-import type { AvatarProps } from '@mui/material/Avatar'
 
 // Type Imports
-import type { ThemeColor } from '@core/types'
 
 export type CustomAvatarProps = AvatarProps & {
   color?: ThemeColor
@@ -45,7 +46,7 @@ const CustomAvatar = forwardRef<HTMLDivElement, CustomAvatarProps>((props: Custo
   // Props
   const { color, skin = 'filled', ...rest } = props
 
-  return <Avatar color={color} skin={skin} ref={ref} {...rest} />
+  return <Avatar ref={ref} color={color} skin={skin} {...rest} />
 })
 
 export default CustomAvatar

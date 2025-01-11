@@ -1,7 +1,6 @@
 'use client'
 
 // React Imports
-import { Children, cloneElement, forwardRef, useEffect, useId, useLayoutEffect, useRef, useState } from 'react'
 import type {
   AnchorHTMLAttributes,
   ForwardRefRenderFunction,
@@ -12,11 +11,15 @@ import type {
 } from 'react'
 
 // Next Imports
-import { usePathname } from 'next/navigation'
 
 // Third-party Imports
-import classnames from 'classnames'
-import styled from '@emotion/styled'
+import type { CSSObject } from '@emotion/styled'
+
+// Type Imports
+import type { OpenSubmenu } from './Menu'
+import type { MenuItemProps } from './MenuItem'
+import type { ChildrenType, RootStylesType, SubMenuItemElement } from '../../types'
+
 import {
   useFloating,
   autoUpdate,
@@ -33,16 +36,12 @@ import {
   useFloatingTree,
   FloatingPortal
 } from '@floating-ui/react'
-import type { CSSObject } from '@emotion/styled'
-
-// Type Imports
-import type { OpenSubmenu } from './Menu'
-import type { MenuItemProps } from './MenuItem'
-import type { ChildrenType, RootStylesType, SubMenuItemElement } from '../../types'
+import styled from '@emotion/styled'
+import classnames from 'classnames'
+import { usePathname } from 'next/navigation'
+import { Children, cloneElement, forwardRef, useEffect, useId, useLayoutEffect, useRef, useState } from 'react'
 
 // Component Imports
-import SubMenuContent from './SubMenuContent'
-import MenuButton, { menuButtonStyles } from './MenuButton'
 
 // Icon Imports
 import ChevronRight from '../../svg/ChevronRight'
@@ -62,6 +61,9 @@ import StyledMenuSuffix from '../../styles/StyledMenuSuffix'
 import StyledVerticalNavExpandIcon, {
   StyledVerticalNavExpandIconWrapper
 } from '../../styles/vertical/StyledVerticalNavExpandIcon'
+
+import MenuButton, { menuButtonStyles } from './MenuButton'
+import SubMenuContent from './SubMenuContent'
 
 export type SubMenuProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'prefix'> &
   RootStylesType &
@@ -321,18 +323,18 @@ const SubMenu: ForwardRefRenderFunction<HTMLLIElement, SubMenuProps> = (props, r
       ref={isCollapsed && level === 0 && isPopoutWhenCollapsed ? refs.setFloating : contentRef}
       {...(isCollapsed && level === 0 && isPopoutWhenCollapsed && getFloatingProps())}
       browserScroll={browserScroll}
-      openWhenCollapsed={openWhenCollapsed}
-      isPopoutWhenCollapsed={isPopoutWhenCollapsed}
-      transitionDuration={transitionDuration}
-      open={isSubMenuOpen}
-      level={level}
+      className={classnames(menuClasses.subMenuContent, contentClassName)}
       isCollapsed={isCollapsed}
       isHovered={isHovered}
-      className={classnames(menuClasses.subMenuContent, contentClassName)}
+      isPopoutWhenCollapsed={isPopoutWhenCollapsed}
+      level={level}
+      open={isSubMenuOpen}
+      openWhenCollapsed={openWhenCollapsed}
       rootStyles={{
         ...(isCollapsed && level === 0 && isPopoutWhenCollapsed && floatingStyles),
         ...getSubMenuItemStyles('subMenuContent')
       }}
+      transitionDuration={transitionDuration}
     >
       {childNodes.map(node =>
         cloneElement(node, {
@@ -355,6 +357,8 @@ const SubMenu: ForwardRefRenderFunction<HTMLLIElement, SubMenuProps> = (props, r
     /* Sub Menu */
     <StyledSubMenu
       ref={ref}
+      active={active}
+      buttonStyles={getSubMenuItemStyles('button')}
       className={classnames(
         menuClasses.subMenuRoot,
         { [menuClasses.active]: active },
@@ -362,13 +366,11 @@ const SubMenu: ForwardRefRenderFunction<HTMLLIElement, SubMenuProps> = (props, r
         { [menuClasses.open]: isSubMenuOpen },
         className
       )}
-      menuItemStyles={getSubMenuItemStyles('root')}
-      level={level}
-      isPopoutWhenCollapsed={isPopoutWhenCollapsed}
       disabled={disabled}
-      active={active}
       isCollapsed={isCollapsed}
-      buttonStyles={getSubMenuItemStyles('button')}
+      isPopoutWhenCollapsed={isPopoutWhenCollapsed}
+      level={level}
+      menuItemStyles={getSubMenuItemStyles('root')}
       rootStyles={rootStyles}
     >
       {/* Menu Item */}
@@ -376,11 +378,11 @@ const SubMenu: ForwardRefRenderFunction<HTMLLIElement, SubMenuProps> = (props, r
         ref={isCollapsed && level === 0 && isPopoutWhenCollapsed && !disabled ? refs.setReference : null}
         onClick={handleOnClick}
         {...(isCollapsed && level === 0 && isPopoutWhenCollapsed && !disabled && getReferenceProps())}
-        onKeyUp={handleOnKeyUp}
-        title={title}
         className={classnames(menuClasses.button, { [menuClasses.active]: active })}
         component={component}
         tabIndex={disabled ? -1 : 0}
+        title={title}
+        onKeyUp={handleOnKeyUp}
         {...rest}
       >
         {/* Sub Menu Icon */}
@@ -397,10 +399,10 @@ const SubMenu: ForwardRefRenderFunction<HTMLLIElement, SubMenuProps> = (props, r
         {/* Sub Menu Prefix */}
         {prefix && (
           <StyledMenuPrefix
-            isHovered={isHovered}
-            isCollapsed={isCollapsed}
-            firstLevel={level === 0}
             className={menuClasses.prefix}
+            firstLevel={level === 0}
+            isCollapsed={isCollapsed}
+            isHovered={isHovered}
             rootStyles={getSubMenuItemStyles('prefix')}
           >
             {prefix}
@@ -419,10 +421,10 @@ const SubMenu: ForwardRefRenderFunction<HTMLLIElement, SubMenuProps> = (props, r
         {/* Sub Menu Suffix */}
         {suffix && (
           <StyledMenuSuffix
-            isHovered={isHovered}
-            isCollapsed={isCollapsed}
-            firstLevel={level === 0}
             className={menuClasses.suffix}
+            firstLevel={level === 0}
+            isCollapsed={isCollapsed}
+            isHovered={isHovered}
             rootStyles={getSubMenuItemStyles('suffix')}
           >
             {suffix}

@@ -1,15 +1,16 @@
 'use client'
 
 // MUI Imports
+import type { CSSObject } from '@emotion/styled'
+import type { ChildrenType } from '@core/types'
+
 import { useTheme } from '@mui/material/styles'
 import useScrollTrigger from '@mui/material/useScrollTrigger'
 
 // Third-party Imports
 import classnames from 'classnames'
-import type { CSSObject } from '@emotion/styled'
 
 // Type Imports
-import type { ChildrenType } from '@core/types'
 
 // Config Imports
 import themeConfig from '@configs/themeConfig'
@@ -54,8 +55,6 @@ const Navbar = (props: Props) => {
 
   return (
     <StyledHeader
-      theme={theme}
-      overrideStyles={overrideStyles}
       className={classnames(verticalLayoutClasses.header, {
         [verticalLayoutClasses.headerFixed]: headerFixed,
         [verticalLayoutClasses.headerStatic]: headerStatic,
@@ -67,6 +66,8 @@ const Navbar = (props: Props) => {
         [verticalLayoutClasses.headerContentWide]: headerContentWide,
         scrolled: trigger
       })}
+      overrideStyles={overrideStyles}
+      theme={theme}
     >
       <div className={classnames(verticalLayoutClasses.navbar, 'flex bs-full')}>{children}</div>
     </StyledHeader>

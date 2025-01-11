@@ -1,8 +1,9 @@
 // Third-party Imports
+import type { ChildrenType } from '@core/types'
+
 import classnames from 'classnames'
 
 // Type Imports
-import type { ChildrenType } from '@core/types'
 
 // Util Imports
 import { horizontalLayoutClasses } from '@layouts/utils/layoutClasses'

@@ -1,4 +1,6 @@
 // MUI Imports
+import type { CustomInputHorizontalProps } from './types'
+
 import Grid from '@mui/material/Grid2'
 import Radio from '@mui/material/Radio'
 import Checkbox from '@mui/material/Checkbox'
@@ -9,7 +11,6 @@ import { styled } from '@mui/material/styles'
 import classnames from 'classnames'
 
 // Type Imports
-import type { CustomInputHorizontalProps } from './types'
 
 const Root = styled('div', {
   name: 'MuiCustomInputHorizontal',
@@ -123,18 +124,18 @@ const CustomInputHorizontal = (props: CustomInputHorizontalProps) => {
   return data ? (
     <Grid {...gridProps}>
       <Root
-        onClick={() => handleChange(value)}
         className={classnames({
           active: type === 'radio' ? selected === value : selected.includes(value)
         })}
+        onClick={() => handleChange(value)}
       >
         {type === 'radio' ? (
-          <RadioInput name={name} color={color} value={value} onChange={handleChange} checked={selected === value} />
+          <RadioInput checked={selected === value} color={color} name={name} value={value} onChange={handleChange} />
         ) : (
           <CheckboxInput
+            checked={selected.includes(value)}
             color={color}
             name={`${name}-${value}`}
-            checked={selected.includes(value)}
             onChange={() => handleChange(value)}
           />
         )}

@@ -1,18 +1,8 @@
 'use client'
 
 // React Imports
-import { createContext, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { ForwardRefRenderFunction, MenuHTMLAttributes, MutableRefObject, ReactElement, ReactNode } from 'react'
-
-// Next Imports
-import { usePathname } from 'next/navigation'
-
-// Third-party Imports
-import classnames from 'classnames'
-import { FloatingTree } from '@floating-ui/react'
 import type { CSSObject } from '@emotion/styled'
-
-// Type Imports
 import type {
   ChildrenType,
   MenuItemStyles,
@@ -20,6 +10,17 @@ import type {
   RenderExpandIconParams,
   RenderExpandedMenuItemIcon
 } from '../../types'
+
+import { createContext, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+
+// Next Imports
+import { usePathname } from 'next/navigation'
+
+// Third-party Imports
+import classnames from 'classnames'
+import { FloatingTree } from '@floating-ui/react'
+
+// Type Imports
 
 // Hook Imports
 import useVerticalNav from '../../hooks/useVerticalNav'

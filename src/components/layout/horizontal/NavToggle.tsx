@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 // Hook Imports
 import useVerticalNav from '@menu/hooks/useVerticalNav'
 import useHorizontalNav from '@menu/hooks/useHorizontalNav'

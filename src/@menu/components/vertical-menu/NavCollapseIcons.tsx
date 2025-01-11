@@ -50,14 +50,14 @@ const NavCollapseIcons = (props: NavCollapseIconsProps) => {
   return (
     <>
       {isBreakpointReached ? (
-        <span role='button' tabIndex={0} style={{ display: 'flex', cursor: 'pointer' }} onClick={handleClose} {...rest}>
+        <span role='button' style={{ display: 'flex', cursor: 'pointer' }} tabIndex={0} onClick={handleClose} {...rest}>
           {closeIcon ?? <CloseIcon />}
         </span>
       ) : isCollapsed ? (
         <span
           role='button'
-          tabIndex={0}
           style={{ display: 'flex', cursor: 'pointer' }}
+          tabIndex={0}
           onClick={() => handleClick('lock')}
           {...rest}
         >
@@ -66,8 +66,8 @@ const NavCollapseIcons = (props: NavCollapseIconsProps) => {
       ) : (
         <span
           role='button'
-          tabIndex={0}
           style={{ display: 'flex', cursor: 'pointer' }}
+          tabIndex={0}
           onClick={() => handleClick('unlock')}
           {...rest}
         >

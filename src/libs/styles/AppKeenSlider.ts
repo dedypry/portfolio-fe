@@ -1,8 +1,9 @@
 'use client'
 
 // MUI imports
-import { styled } from '@mui/material/styles'
 import type { Theme } from '@mui/material/styles'
+
+import { styled } from '@mui/material/styles'
 
 // Third-party Imports
 import 'keen-slider/keen-slider.min.css'

@@ -1,8 +1,10 @@
 'use client'
 
 // React Imports
-import { useRef, useState } from 'react'
 import type { ReactElement, ReactNode, SyntheticEvent } from 'react'
+import type { OptionsMenuType, OptionType, OptionMenuItemType } from './types'
+
+import { useRef, useState } from 'react'
 
 // Next Imports
 import Link from 'next/link'
@@ -23,7 +25,6 @@ import Divider from '@mui/material/Divider'
 import classnames from 'classnames'
 
 // Type Imports
-import type { OptionsMenuType, OptionType, OptionMenuItemType } from './types'
 
 // Hook Imports
 import { useSettings } from '@core/hooks/useSettings'
@@ -86,11 +87,11 @@ const OptionMenu = (props: OptionsMenuType) => {
         </IconButton>
       </IconButtonWrapper>
       <Popper
-        open={open}
-        anchorEl={anchorRef.current}
-        placement={leftAlignMenu ? 'bottom-start' : 'bottom-end'}
-        transition
         disablePortal
+        transition
+        anchorEl={anchorRef.current}
+        open={open}
+        placement={leftAlignMenu ? 'bottom-start' : 'bottom-end'}
         sx={{ zIndex: 1 }}
       >
         {({ TransitionProps }) => (

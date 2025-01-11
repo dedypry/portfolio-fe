@@ -1,8 +1,9 @@
 // React Imports
+import type { VerticalMenuContextProps } from '../components/vertical-menu/Menu'
+
 import { useContext } from 'react'
 
 // Type Imports
-import type { VerticalMenuContextProps } from '../components/vertical-menu/Menu'
 
 // Context Imports
 import { VerticalMenuContext } from '../components/vertical-menu/Menu'

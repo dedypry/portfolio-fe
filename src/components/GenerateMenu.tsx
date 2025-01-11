@@ -1,3 +1,4 @@
+/* eslint-disable import/order */
 // React Imports
 import type { ReactNode } from 'react'
 
@@ -52,14 +53,14 @@ export const GenerateVerticalMenu = ({ menuData }: { menuData: VerticalMenuDataT
 
         const subMenuPrefix: ReactNode =
           prefix && (prefix as ChipProps).label ? (
-            <CustomChip size='small' round='true' {...(prefix as ChipProps)} />
+            <CustomChip round='true' size='small' {...(prefix as ChipProps)} />
           ) : (
             (prefix as ReactNode)
           )
 
         const subMenuSuffix: ReactNode =
           suffix && (suffix as ChipProps).label ? (
-            <CustomChip size='small' round='true' {...(suffix as ChipProps)} />
+            <CustomChip round='true' size='small' {...(suffix as ChipProps)} />
           ) : (
             (suffix as ReactNode)
           )
@@ -88,14 +89,14 @@ export const GenerateVerticalMenu = ({ menuData }: { menuData: VerticalMenuDataT
 
       const menuItemPrefix: ReactNode =
         prefix && (prefix as ChipProps).label ? (
-          <CustomChip size='small' round='true' {...(prefix as ChipProps)} />
+          <CustomChip round='true' size='small' {...(prefix as ChipProps)} />
         ) : (
           (prefix as ReactNode)
         )
 
       const menuItemSuffix: ReactNode =
         suffix && (suffix as ChipProps).label ? (
-          <CustomChip size='small' round='true' {...(suffix as ChipProps)} />
+          <CustomChip round='true' size='small' {...(suffix as ChipProps)} />
         ) : (
           (suffix as ReactNode)
         )
@@ -136,14 +137,14 @@ export const GenerateHorizontalMenu = ({ menuData }: { menuData: HorizontalMenuD
 
         const subMenuPrefix: ReactNode =
           prefix && (prefix as ChipProps).label ? (
-            <CustomChip size='small' round='true' {...(prefix as ChipProps)} />
+            <CustomChip round='true' size='small' {...(prefix as ChipProps)} />
           ) : (
             (prefix as ReactNode)
           )
 
         const subMenuSuffix: ReactNode =
           suffix && (suffix as ChipProps).label ? (
-            <CustomChip size='small' round='true' {...(suffix as ChipProps)} />
+            <CustomChip round='true' size='small' {...(suffix as ChipProps)} />
           ) : (
             (suffix as ReactNode)
           )
@@ -172,14 +173,14 @@ export const GenerateHorizontalMenu = ({ menuData }: { menuData: HorizontalMenuD
 
       const menuItemPrefix: ReactNode =
         prefix && (prefix as ChipProps).label ? (
-          <CustomChip size='small' round='true' {...(prefix as ChipProps)} />
+          <CustomChip round='true' size='small' {...(prefix as ChipProps)} />
         ) : (
           (prefix as ReactNode)
         )
 
       const menuItemSuffix: ReactNode =
         suffix && (suffix as ChipProps).label ? (
-          <CustomChip size='small' round='true' {...(suffix as ChipProps)} />
+          <CustomChip round='true' size='small' {...(suffix as ChipProps)} />
         ) : (
           (suffix as ReactNode)
         )

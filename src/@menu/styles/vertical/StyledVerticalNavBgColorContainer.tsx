@@ -1,8 +1,9 @@
 // Third-party Imports
+import type { VerticalNavProps } from '../../components/vertical-menu/VerticalNav'
+
 import styled from '@emotion/styled'
 
 // Type Imports
-import type { VerticalNavProps } from '../../components/vertical-menu/VerticalNav'
 
 type StyledVerticalNavBgColorContainerProps = Pick<VerticalNavProps, 'backgroundColor'>
 

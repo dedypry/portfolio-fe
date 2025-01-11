@@ -1,3 +1,4 @@
+/* eslint-disable import/order */
 'use client'
 
 // React Imports
@@ -73,12 +74,12 @@ const Logo = ({ color }: { color?: CSSProperties['color'] }) => {
     <div className='flex items-center'>
       <VuexyLogo className='text-2xl text-primary' />
       <LogoText
-        color={color}
         ref={logoTextRef}
-        isHovered={isHovered}
-        isCollapsed={layout === 'collapsed'}
-        transitionDuration={transitionDuration}
+        color={color}
         isBreakpointReached={isBreakpointReached}
+        isCollapsed={layout === 'collapsed'}
+        isHovered={isHovered}
+        transitionDuration={transitionDuration}
       >
         {themeConfig.templateName}
       </LogoText>

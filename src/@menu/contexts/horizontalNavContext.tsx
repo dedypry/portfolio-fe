@@ -1,10 +1,11 @@
 'use client'
 
 // React Imports
+import type { ChildrenType } from '../types'
+
 import { createContext, useMemo, useState } from 'react'
 
 // Type Imports
-import type { ChildrenType } from '../types'
 
 export type HorizontalNavContextProps = {
   isBreakpointReached?: boolean

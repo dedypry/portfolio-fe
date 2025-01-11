@@ -20,8 +20,8 @@ const VerticalNavInHorizontal = (props: VerticalNavInHorizontalProps) => {
   return (
     <VerticalNav
       {...verticalNavProps}
-      className={className}
       breakpoint={breakpoint}
+      className={className}
       customBreakpoint={customBreakpoint}
     >
       {children}

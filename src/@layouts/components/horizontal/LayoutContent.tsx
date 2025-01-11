@@ -1,10 +1,11 @@
 'use client'
 
 // Third-party Imports
+import type { ChildrenType } from '@core/types'
+
 import classnames from 'classnames'
 
 // Type Imports
-import type { ChildrenType } from '@core/types'
 
 // Config Imports
 import themeConfig from '@configs/themeConfig'
@@ -28,11 +29,11 @@ const LayoutContent = ({ children }: ChildrenType) => {
 
   return (
     <StyledMain
-      isContentCompact={contentCompact}
       className={classnames(horizontalLayoutClasses.content, 'flex-auto', {
         [`${horizontalLayoutClasses.contentCompact} is-full`]: contentCompact,
         [horizontalLayoutClasses.contentWide]: contentWide
       })}
+      isContentCompact={contentCompact}
       style={{ padding: themeConfig.layoutPadding }}
     >
       {children}

@@ -1,3 +1,4 @@
+/* eslint-disable import/order */
 /*
  ! This file is for adding custom types to the MUI theme, components and props.
  ! Please do not remove anything from this file as it may break the application.

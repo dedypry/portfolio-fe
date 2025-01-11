@@ -1,11 +1,12 @@
 'use client'
 
 // Third-party Imports
-import classnames from 'classnames'
 import type { CSSObject } from '@emotion/styled'
 
 // Type Imports
 import type { ChildrenType } from '@core/types'
+
+import classnames from 'classnames'
 
 // Config Imports
 import themeConfig from '@configs/themeConfig'
@@ -40,13 +41,13 @@ const Footer = (props: Props) => {
 
   return (
     <StyledFooter
-      overrideStyles={overrideStyles}
       className={classnames(horizontalLayoutClasses.footer, {
         [horizontalLayoutClasses.footerStatic]: footerStatic,
         [horizontalLayoutClasses.footerFixed]: footerFixed,
         [horizontalLayoutClasses.footerContentCompact]: footerContentCompact,
         [horizontalLayoutClasses.footerContentWide]: footerContentWide
       })}
+      overrideStyles={overrideStyles}
     >
       <div className={horizontalLayoutClasses.footerContentWrapper}>{children}</div>
     </StyledFooter>

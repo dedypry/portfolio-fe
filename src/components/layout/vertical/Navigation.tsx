@@ -1,20 +1,21 @@
+/* eslint-disable import/order */
 'use client'
 
 // React Imports
-import { useEffect, useRef } from 'react'
 
 // Next Imports
+import type { Mode } from '@core/types'
+
 import Link from 'next/link'
 
 // MUI Imports
 import { styled, useColorScheme, useTheme } from '@mui/material/styles'
 
 // Type Imports
-import type { Mode } from '@core/types'
+import { useEffect, useRef } from 'react'
 
 // Component Imports
 import VerticalNav, { NavHeader, NavCollapseIcons } from '@menu/vertical-menu'
-import VerticalMenu from './VerticalMenu'
 import Logo from '@components/layout/shared/Logo'
 
 // Hook Imports
@@ -23,6 +24,8 @@ import { useSettings } from '@core/hooks/useSettings'
 
 // Style Imports
 import navigationCustomStyles from '@core/styles/vertical/navigationCustomStyles'
+
+import VerticalMenu from './VerticalMenu'
 
 type Props = {
   mode: Mode
@@ -95,8 +98,8 @@ const Navigation = (props: Props) => {
     // eslint-disable-next-line lines-around-comment
     // Sidebar Vertical Menu
     <VerticalNav
-      customStyles={navigationCustomStyles(verticalNavOptions, theme)}
       collapsedWidth={71}
+      customStyles={navigationCustomStyles(verticalNavOptions, theme)}
       backgroundColor='var(--mui-palette-background-paper)'
       // eslint-disable-next-line lines-around-comment
       // The following condition adds the data-dark attribute to the VerticalNav component
@@ -113,9 +116,9 @@ const Navigation = (props: Props) => {
         </Link>
         {!(isCollapsed && !isHovered) && (
           <NavCollapseIcons
+            closeIcon={<i className='tabler-x text-xl' />}
             lockedIcon={<i className='tabler-circle-dot text-xl' />}
             unlockedIcon={<i className='tabler-circle text-xl' />}
-            closeIcon={<i className='tabler-x text-xl' />}
             onClick={() => updateSettings({ layout: !isCollapsed ? 'collapsed' : 'vertical' })}
           />
         )}

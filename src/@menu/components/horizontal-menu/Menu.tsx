@@ -1,14 +1,7 @@
 'use client'
 
 // React Imports
-import { createContext, forwardRef, useMemo } from 'react'
 import type { ForwardRefRenderFunction, MenuHTMLAttributes, ReactElement } from 'react'
-
-// Third-party Imports
-import classnames from 'classnames'
-import { FloatingTree } from '@floating-ui/react'
-
-// Type Imports
 import type { MenuProps as VerticalMenuProps } from '../vertical-menu/Menu'
 import type {
   ChildrenType,
@@ -17,6 +10,14 @@ import type {
   RenderExpandedMenuItemIcon,
   RootStylesType
 } from '../../types'
+
+import { createContext, forwardRef, useMemo } from 'react'
+
+// Third-party Imports
+import classnames from 'classnames'
+import { FloatingTree } from '@floating-ui/react'
+
+// Type Imports
 
 // Util Imports
 import { menuClasses } from '../../utils/menuClasses'

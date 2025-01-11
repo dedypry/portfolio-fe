@@ -1,5 +1,5 @@
+/* eslint-disable import/order */
 // React Imports
-import { Children, isValidElement } from 'react'
 import type { ReactElement, ReactNode } from 'react'
 
 // Third-party Imports
@@ -8,20 +8,24 @@ import type { CSSObject } from '@emotion/styled'
 // Type Imports
 import type { ChildrenType, RenderExpandedMenuItemIcon } from '../types'
 
+import { Children, isValidElement } from 'react'
+
 // Component Imports
+import { GenerateVerticalMenu } from '@components/GenerateMenu'
+
+import { SubMenu as VerticalSubMenu, MenuItem as VerticalMenuItem, Menu as VerticalMenu } from '../vertical-menu'
 import {
   SubMenu as HorizontalSubMenu,
   MenuItem as HorizontalMenuItem,
   Menu as HorizontalMenu
 } from '../horizontal-menu'
-import { SubMenu as VerticalSubMenu, MenuItem as VerticalMenuItem, Menu as VerticalMenu } from '../vertical-menu'
-import { GenerateVerticalMenu } from '@components/GenerateMenu'
 
 // Util Imports
-import { menuClasses } from './menuClasses'
 
 // Styled Component Imports
 import StyledMenuIcon from '../styles/StyledMenuIcon'
+
+import { menuClasses } from './menuClasses'
 
 type RenderMenuIconParams = {
   level?: number

@@ -1,22 +1,23 @@
 'use client'
 
 // React Imports
-import { forwardRef, useEffect, useState } from 'react'
 import type { AnchorHTMLAttributes, ForwardRefRenderFunction, ReactElement, ReactNode } from 'react'
 
 // Next Imports
+import type { CSSObject } from '@emotion/styled'
+import type { ChildrenType, MenuItemElement, MenuItemExactMatchUrlProps, RootStylesType } from '../../types'
+
 import { usePathname } from 'next/navigation'
 
 // Third-party Imports
 import classnames from 'classnames'
 import { useUpdateEffect } from 'react-use'
-import type { CSSObject } from '@emotion/styled'
 
 // Type Imports
-import type { ChildrenType, MenuItemElement, MenuItemExactMatchUrlProps, RootStylesType } from '../../types'
+
+import { forwardRef, useEffect, useState } from 'react'
 
 // Component Imports
-import MenuButton from './MenuButton'
 
 // Hook Imports
 import useVerticalNav from '../../hooks/useVerticalNav'
@@ -31,6 +32,8 @@ import StyledMenuLabel from '../../styles/StyledMenuLabel'
 import StyledMenuPrefix from '../../styles/StyledMenuPrefix'
 import StyledMenuSuffix from '../../styles/StyledMenuSuffix'
 import StyledVerticalMenuItem from '../../styles/vertical/StyledVerticalMenuItem'
+
+import MenuButton from './MenuButton'
 
 export type MenuItemProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'prefix'> &
   RootStylesType &
@@ -127,17 +130,17 @@ const MenuItem: ForwardRefRenderFunction<HTMLLIElement, MenuItemProps> = (props,
   return (
     <StyledVerticalMenuItem
       ref={ref}
+      buttonStyles={getMenuItemStyles('button')}
       className={classnames(
         menuClasses.menuItemRoot,
         { [menuClasses.disabled]: disabled },
         { [menuClasses.active]: active },
         className
       )}
-      level={level}
+      disabled={disabled}
       isCollapsed={isCollapsed}
       isPopoutWhenCollapsed={isPopoutWhenCollapsed}
-      disabled={disabled}
-      buttonStyles={getMenuItemStyles('button')}
+      level={level}
       menuItemStyles={getMenuItemStyles('root')}
       rootStyles={rootStyles}
     >
@@ -165,10 +168,10 @@ const MenuItem: ForwardRefRenderFunction<HTMLLIElement, MenuItemProps> = (props,
         {/* Menu Item Prefix */}
         {prefix && (
           <StyledMenuPrefix
-            isHovered={isHovered}
-            isCollapsed={isCollapsed}
-            firstLevel={level === 0}
             className={menuClasses.prefix}
+            firstLevel={level === 0}
+            isCollapsed={isCollapsed}
+            isHovered={isHovered}
             rootStyles={getMenuItemStyles('prefix')}
           >
             {prefix}
@@ -187,10 +190,10 @@ const MenuItem: ForwardRefRenderFunction<HTMLLIElement, MenuItemProps> = (props,
         {/* Menu Item Suffix */}
         {suffix && (
           <StyledMenuSuffix
-            isHovered={isHovered}
-            isCollapsed={isCollapsed}
-            firstLevel={level === 0}
             className={menuClasses.suffix}
+            firstLevel={level === 0}
+            isCollapsed={isCollapsed}
+            isHovered={isHovered}
             rootStyles={getMenuItemStyles('suffix')}
           >
             {suffix}

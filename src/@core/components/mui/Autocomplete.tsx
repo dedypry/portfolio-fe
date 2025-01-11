@@ -1,11 +1,12 @@
 // React imports
-import { forwardRef } from 'react'
 import type { ElementType } from 'react'
+import type { AutocompleteProps } from '@mui/material/Autocomplete'
+
+import { forwardRef } from 'react'
 
 // MUI imports
 import Paper from '@mui/material/Paper'
 import Autocomplete from '@mui/material/Autocomplete'
-import type { AutocompleteProps } from '@mui/material/Autocomplete'
 
 const CustomAutocomplete = forwardRef(
   <

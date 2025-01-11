@@ -1,4 +1,6 @@
 // React Imports
+import type { SystemMode } from '@core/types'
+
 import { useEffect } from 'react'
 
 // MUI Imports
@@ -8,7 +10,6 @@ import { useColorScheme } from '@mui/material/styles'
 import { useMedia } from 'react-use'
 
 // Type Imports
-import type { SystemMode } from '@core/types'
 
 // Hook Imports
 import { useSettings } from '@core/hooks/useSettings'

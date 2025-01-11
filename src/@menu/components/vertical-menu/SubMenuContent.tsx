@@ -1,13 +1,14 @@
 // React Imports
-import { forwardRef, useEffect, useState } from 'react'
 import type { ForwardRefRenderFunction, HTMLAttributes, MutableRefObject } from 'react'
 
 // Third-party Imports
-import PerfectScrollbar from 'react-perfect-scrollbar'
 
 // Type Imports
 import type { VerticalMenuContextProps } from './Menu'
 import type { ChildrenType, RootStylesType } from '../../types'
+
+import PerfectScrollbar from 'react-perfect-scrollbar'
+import { forwardRef, useEffect, useState } from 'react'
 
 // Styled Component Imports
 import StyledSubMenuContent from '../../styles/StyledSubMenuContent'
@@ -97,14 +98,14 @@ const SubMenuContent: ForwardRefRenderFunction<HTMLDivElement, SubMenuContentPro
   return (
     <StyledSubMenuContent
       ref={ref}
-      level={level}
+      browserScroll={browserScroll}
       isCollapsed={isCollapsed}
       isHovered={isHovered}
+      isPopoutWhenCollapsed={isPopoutWhenCollapsed}
+      level={level}
       open={open}
       openWhenCollapsed={openWhenCollapsed}
-      isPopoutWhenCollapsed={isPopoutWhenCollapsed}
       transitionDuration={transitionDuration}
-      browserScroll={browserScroll}
       {...rest}
     >
       {/* If browserScroll is false render PerfectScrollbar */}

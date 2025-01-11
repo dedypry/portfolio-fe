@@ -1,13 +1,14 @@
 'use client'
 
 // React Imports
+import type { TextFieldProps } from '@mui/material/TextField'
+import type { InputLabelProps } from '@mui/material/InputLabel'
+
 import { forwardRef } from 'react'
 
 // MUI Imports
 import { styled } from '@mui/material/styles'
 import TextField from '@mui/material/TextField'
-import type { TextFieldProps } from '@mui/material/TextField'
-import type { InputLabelProps } from '@mui/material/InputLabel'
 
 const TextFieldStyled = styled(TextField)<TextFieldProps>(({ theme }) => ({
   '& .MuiInputLabel-root': {
@@ -255,14 +256,14 @@ const CustomTextField = forwardRef((props: TextFieldProps, ref) => {
 
   return (
     <TextFieldStyled
-      size={size}
       inputRef={ref}
+      size={size}
       {...rest}
-      variant='filled'
       slotProps={{
         ...slotProps,
         inputLabel: { ...slotProps?.inputLabel, shrink: true } as InputLabelProps
       }}
+      variant='filled'
     />
   )
 })

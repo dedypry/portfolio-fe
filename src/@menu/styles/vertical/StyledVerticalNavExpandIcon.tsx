@@ -1,9 +1,10 @@
 // Third-party Imports
-import styled from '@emotion/styled'
 
 // Type Imports
 import type { RootStylesType } from '../../types'
 import type { VerticalMenuContextProps } from '../../components/vertical-menu/Menu'
+
+import styled from '@emotion/styled'
 
 type StyledVerticalNavExpandIconProps = {
   open?: boolean

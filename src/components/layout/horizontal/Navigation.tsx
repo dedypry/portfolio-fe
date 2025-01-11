@@ -1,3 +1,4 @@
+/* eslint-disable import/order */
 // Third-party Imports
 import styled from '@emotion/styled'
 import classnames from 'classnames'
@@ -51,8 +52,8 @@ const Navigation = () => {
       })}
     >
       <StyledDiv
-        isContentCompact={headerContentCompact}
         isBreakpointReached={isBreakpointReached}
+        isContentCompact={headerContentCompact}
         {...(!isBreakpointReached && {
           className: classnames(horizontalLayoutClasses.navigationContentWrapper, 'flex items-center is-full plb-2')
         })}

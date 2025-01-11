@@ -1,9 +1,11 @@
+/* eslint-disable import/order */
 // Third-party Imports
-import styled from '@emotion/styled'
 import type { CSSObject } from '@emotion/styled'
 
 // Type Imports
 import type { MenuSectionProps } from '../../components/vertical-menu/MenuSection'
+
+import styled from '@emotion/styled'
 
 // Util Imports
 import { menuClasses } from '../../utils/menuClasses'

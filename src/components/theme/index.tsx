@@ -1,3 +1,4 @@
+/* eslint-disable import/order */
 'use client'
 
 // React Imports
@@ -19,16 +20,17 @@ import stylisRTLPlugin from 'stylis-plugin-rtl'
 import type { ChildrenType, Direction, SystemMode } from '@core/types'
 
 // Component Imports
+import themeConfig from '@configs/themeConfig'
+import { useSettings } from '@core/hooks/useSettings'
+import defaultCoreTheme from '@core/theme'
+
 import ModeChanger from './ModeChanger'
 
 // Config Imports
-import themeConfig from '@configs/themeConfig'
 
 // Hook Imports
-import { useSettings } from '@core/hooks/useSettings'
 
 // Core Theme Imports
-import defaultCoreTheme from '@core/theme'
 
 type Props = ChildrenType & {
   direction: Direction
@@ -103,9 +105,9 @@ const CustomThemeProvider = (props: Props) => {
       }}
     >
       <ThemeProvider
-        theme={theme}
         defaultMode={systemMode}
         modeStorageKey={`${themeConfig.templateName.toLowerCase().split(' ').join('-')}-mui-template-mode`}
+        theme={theme}
       >
         <>
           <ModeChanger systemMode={systemMode} />

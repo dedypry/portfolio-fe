@@ -1,4 +1,6 @@
 // React Imports
+import type { ChildrenType } from '@core/types'
+
 import { useRef } from 'react'
 
 // Next Imports
@@ -11,7 +13,6 @@ import { styled } from '@mui/material/styles'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 
 // Type Imports
-import type { ChildrenType } from '@core/types'
 
 // Component Imports
 import NavHeader from '@menu/components/vertical-menu/NavHeader'
@@ -74,9 +75,9 @@ const VerticalNavContent = ({ children }: ChildrenType) => {
           <Logo />
         </Link>
         <NavCollapseIcons
+          closeIcon={<i className='tabler-x text-xl' />}
           lockedIcon={<i className='tabler-circle-dot text-xl' />}
           unlockedIcon={<i className='tabler-circle text-xl' />}
-          closeIcon={<i className='tabler-x text-xl' />}
         />
       </NavHeader>
       <StyledBoxForShadow ref={shadowRef} />

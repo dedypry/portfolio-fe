@@ -1,8 +1,9 @@
 // React Imports
+import type { HorizontalMenuContextProps } from '../components/horizontal-menu/Menu'
+
 import { useContext } from 'react'
 
 // Type Imports
-import type { HorizontalMenuContextProps } from '../components/horizontal-menu/Menu'
 
 // Context Imports
 import { HorizontalMenuContext } from '../components/horizontal-menu/Menu'

@@ -1,6 +1,7 @@
 // Third-party Imports
-import styled from '@emotion/styled'
 import type { CSSObject } from '@emotion/styled'
+
+import styled from '@emotion/styled'
 
 // Config Imports
 import themeConfig from '@configs/themeConfig'

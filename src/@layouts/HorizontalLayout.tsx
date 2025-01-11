@@ -2,10 +2,11 @@
 import type { ReactNode } from 'react'
 
 // Third-party Imports
+import type { ChildrenType } from '@core/types'
+
 import classnames from 'classnames'
 
 // Type Imports
-import type { ChildrenType } from '@core/types'
 
 // Context Imports
 import { HorizontalNavProvider } from '@menu/contexts/horizontalNavContext'

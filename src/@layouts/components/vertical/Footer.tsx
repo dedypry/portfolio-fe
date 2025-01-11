@@ -1,11 +1,12 @@
 'use client'
 
 // Third-party Imports
-import classnames from 'classnames'
 import type { CSSObject } from '@emotion/styled'
 
 // Type Imports
 import type { ChildrenType } from '@core/types'
+
+import classnames from 'classnames'
 
 // Config Imports
 import themeConfig from '@configs/themeConfig'
@@ -42,7 +43,6 @@ const Footer = (props: Props) => {
 
   return (
     <StyledFooter
-      overrideStyles={overrideStyles}
       className={classnames(verticalLayoutClasses.footer, 'is-full', {
         [verticalLayoutClasses.footerDetached]: footerDetached,
         [verticalLayoutClasses.footerAttached]: footerAttached,
@@ -51,6 +51,7 @@ const Footer = (props: Props) => {
         [verticalLayoutClasses.footerContentCompact]: footerContentCompact,
         [verticalLayoutClasses.footerContentWide]: footerContentWide
       })}
+      overrideStyles={overrideStyles}
     >
       <div className={verticalLayoutClasses.footerContentWrapper}>{children}</div>
     </StyledFooter>

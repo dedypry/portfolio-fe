@@ -1,6 +1,9 @@
+/* eslint-disable import/order */
 'use client'
 
 // Next Imports
+import type { SystemMode } from '@core/types'
+
 import Link from 'next/link'
 
 // MUI Imports
@@ -13,7 +16,6 @@ import Typography from '@mui/material/Typography'
 import classnames from 'classnames'
 
 // Type Imports
-import type { SystemMode } from '@core/types'
 
 // Hook Imports
 import { useImageVariant } from '@core/hooks/useImageVariant'
@@ -48,20 +50,20 @@ const NotFound = ({ mode }: { mode: SystemMode }) => {
           <Typography variant='h4'>Page Not Found ⚠️</Typography>
           <Typography>we couldn&#39;t find the page you are looking for.</Typography>
         </div>
-        <Button href='/' component={Link} variant='contained'>
+        <Button component={Link} href='/' variant='contained'>
           Back To Home
         </Button>
         <img
           alt='error-404-illustration'
-          src='/images/illustrations/characters/1.png'
           className='object-cover bs-[400px] md:bs-[450px] lg:bs-[500px] mbs-10 md:mbs-14 lg:mbs-20'
+          src='/images/illustrations/characters/1.png'
         />
       </div>
       {!hidden && (
         <MaskImg
           alt='mask'
-          src={miscBackground}
           className={classnames({ 'scale-x-[-1]': theme.direction === 'rtl' })}
+          src={miscBackground}
         />
       )}
     </div>

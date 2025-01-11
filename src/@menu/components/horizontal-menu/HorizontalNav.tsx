@@ -1,19 +1,19 @@
 'use client'
 
 // React Imports
-import { useEffect, useRef } from 'react'
 import type { HTMLAttributes } from 'react'
 
 // Third-party Imports
-import classnames from 'classnames'
 import type { CSSObject } from '@emotion/styled'
 
 // Type Imports
 import type { BreakpointType, ChildrenType } from '../../types'
 import type { VerticalNavProps } from '../vertical-menu/VerticalNav'
 
+import classnames from 'classnames'
+import { useEffect, useRef } from 'react'
+
 // Component Imports
-import VerticalNavInHorizontal from './VerticalNavInHorizontal'
 
 // Hook Imports
 import useMediaQuery from '../../hooks/useMediaQuery'
@@ -27,6 +27,8 @@ import StyledHorizontalNav from '../../styles/horizontal/StyledHorizontalNav'
 
 // Default Config Imports
 import { defaultBreakpoints } from '../../defaultConfigs'
+
+import VerticalNavInHorizontal from './VerticalNavInHorizontal'
 
 export type HorizontalNavProps = HTMLAttributes<HTMLDivElement> & {
   switchToVertical?: boolean
@@ -101,7 +103,7 @@ const HorizontalNav = (props: HorizontalNavProps) => {
 
   // If switchToVertical & hideMenu are false, then render the HorizontalNav component
   return (
-    <StyledHorizontalNav customStyles={customStyles} className={horizontalMenuClasses}>
+    <StyledHorizontalNav className={horizontalMenuClasses} customStyles={customStyles}>
       {children}
     </StyledHorizontalNav>
   )

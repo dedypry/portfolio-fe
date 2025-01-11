@@ -1,3 +1,4 @@
+/* eslint-disable import/order */
 // MUI Imports
 import InitColorSchemeScript from '@mui/material/InitColorSchemeScript'
 
@@ -31,7 +32,7 @@ const RootLayout = async (props: ChildrenType) => {
   const direction = 'ltr'
 
   return (
-    <html id='__next' lang='en' dir={direction} suppressHydrationWarning>
+    <html suppressHydrationWarning dir={direction} id='__next' lang='en'>
       <body className='flex is-full min-bs-full flex-auto flex-col'>
         <InitColorSchemeScript attribute='data' defaultMode={systemMode} />
         {children}

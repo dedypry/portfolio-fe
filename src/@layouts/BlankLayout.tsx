@@ -1,10 +1,11 @@
 'use client'
 
 // Third-party Imports
+import type { ChildrenType, SystemMode } from '@core/types'
+
 import classnames from 'classnames'
 
 // Type Imports
-import type { ChildrenType, SystemMode } from '@core/types'
 
 // Hook Imports
 import { useSettings } from '@core/hooks/useSettings'

@@ -1,8 +1,9 @@
 'use client'
 
 // React Imports
-import { createContext, useState } from 'react'
 import type { ReactNode } from 'react'
+
+import { createContext, useState } from 'react'
 
 export const initialIntersections: Record<string, boolean> = {
   features: false,

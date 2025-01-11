@@ -1,11 +1,9 @@
 'use client'
 
 // React Imports
-import { useEffect, useRef } from 'react'
 import type { HTMLAttributes } from 'react'
 
 // Third-party Imports
-import classnames from 'classnames'
 import type { CSSObject } from '@emotion/styled'
 
 // Type Imports
@@ -13,6 +11,9 @@ import type { BreakpointType } from '../../types'
 
 // Context Imports
 import type { VerticalNavState } from '../../contexts/verticalNavContext'
+
+import classnames from 'classnames'
+import { useEffect, useRef } from 'react'
 
 // Hook Imports
 import useMediaQuery from '../../hooks/useMediaQuery'
@@ -165,14 +166,6 @@ const VerticalNav = (props: VerticalNavProps) => {
 
   return (
     <StyledVerticalNav
-      width={defaultCollapsed && !widthContext ? collapsedWidth : width}
-      isBreakpointReached={isBreakpointReachedContext}
-      collapsedWidth={collapsedWidth}
-      collapsing={collapsingContext}
-      expanding={expandingContext}
-      customStyles={customStyles}
-      scrollWithContent={isScrollWithContentContext}
-      transitionDuration={transitionDurationContext}
       className={classnames(
         verticalNavClasses.root,
         {
@@ -186,13 +179,21 @@ const VerticalNav = (props: VerticalNavProps) => {
         },
         className
       )}
+      collapsedWidth={collapsedWidth}
+      collapsing={collapsingContext}
+      customStyles={customStyles}
+      expanding={expandingContext}
+      isBreakpointReached={isBreakpointReachedContext}
+      scrollWithContent={isScrollWithContentContext}
+      transitionDuration={transitionDurationContext}
+      width={defaultCollapsed && !widthContext ? collapsedWidth : width}
       {...rest}
     >
       {/* VerticalNav Container for hover effect when verticalNav is collapsed */}
       <StyledVerticalNavContainer
-        width={widthContext}
         className={verticalNavClasses.container}
         transitionDuration={transitionDurationContext}
+        width={widthContext}
         {
           // eslint-disable-next-line lines-around-comment
           /* Toggle verticalNav on hover only when isPopoutWhenCollapsedContext(default false) is false */
@@ -206,8 +207,8 @@ const VerticalNav = (props: VerticalNavProps) => {
       >
         {/* VerticalNav Container to apply styling like background */}
         <StyledVerticalNavBgColorContainer
-          className={verticalNavClasses.bgColorContainer}
           backgroundColor={backgroundColor}
+          className={verticalNavClasses.bgColorContainer}
         >
           {children}
         </StyledVerticalNavBgColorContainer>
@@ -217,9 +218,9 @@ const VerticalNav = (props: VerticalNavProps) => {
           // eslint-disable-next-line lines-around-comment
           /* VerticalNav Background Image */
           <img
+            alt='verticalNav background'
             className={classnames(verticalNavClasses.image, styles.root)}
             src={backgroundImage}
-            alt='verticalNav background'
           />
         )}
       </StyledVerticalNavContainer>
@@ -229,13 +230,13 @@ const VerticalNav = (props: VerticalNavProps) => {
         // eslint-disable-next-line lines-around-comment
         /* VerticalNav Backdrop */
         <StyledBackdrop
+          aria-label='backdrop'
+          backdropColor={backdropColor}
+          className={verticalNavClasses.backdrop}
           role='button'
           tabIndex={0}
-          aria-label='backdrop'
           onClick={handleBackdropClick}
           onKeyPress={handleBackdropClick}
-          className={verticalNavClasses.backdrop}
-          backdropColor={backdropColor}
         />
       )}
     </StyledVerticalNav>

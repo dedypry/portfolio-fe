@@ -1,8 +1,9 @@
 // Third-party Imports
+import type { RootStylesType } from '../types'
+
 import styled from '@emotion/styled'
 
 // Type Imports
-import type { RootStylesType } from '../types'
 
 const StyledMenuIcon = styled.span<RootStylesType>`
   display: flex;

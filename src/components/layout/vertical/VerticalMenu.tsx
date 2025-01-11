@@ -1,3 +1,4 @@
+/* eslint-disable import/order */
 // MUI Imports
 import type { VerticalMenuContextProps } from '@menu/components/vertical-menu/Menu'
 

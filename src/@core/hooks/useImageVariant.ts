@@ -1,11 +1,12 @@
 // React Imports
+import type { Mode } from '@core/types'
+
 import { useMemo } from 'react'
 
 // Third-party imports
 import { useColorScheme } from '@mui/material'
 
 // Type imports
-import type { Mode } from '@core/types'
 
 // Hook Imports
 import { useSettings } from './useSettings'

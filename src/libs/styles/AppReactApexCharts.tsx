@@ -1,12 +1,13 @@
 'use client'
 
 // MUI Imports
+import type { BoxProps } from '@mui/material/Box'
+import type { Props } from 'react-apexcharts'
+
 import Box from '@mui/material/Box'
 import { styled } from '@mui/material/styles'
-import type { BoxProps } from '@mui/material/Box'
 
 // Third-party Imports
-import type { Props } from 'react-apexcharts'
 
 // Component Imports
 import ReactApexcharts from '@/libs/ApexCharts'

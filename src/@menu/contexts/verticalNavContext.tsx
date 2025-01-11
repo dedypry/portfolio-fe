@@ -1,10 +1,11 @@
 'use client'
 
 // React Imports
+import type { ChildrenType } from '../types'
+
 import { createContext, useCallback, useMemo, useState } from 'react'
 
 // Type Imports
-import type { ChildrenType } from '../types'
 
 export type VerticalNavState = {
   width?: number

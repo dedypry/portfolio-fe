@@ -1,14 +1,15 @@
 'use client'
 
 // React Imports
+import type { LinkProps } from 'next/link'
+import type { ChildrenType } from '../types'
+
 import { forwardRef } from 'react'
 
 // Next Imports
 import Link from 'next/link'
-import type { LinkProps } from 'next/link'
 
 // Type Imports
-import type { ChildrenType } from '../types'
 
 type RouterLinkProps = LinkProps &
   Partial<ChildrenType> & {
@@ -20,7 +21,7 @@ export const RouterLink = forwardRef((props: RouterLinkProps, ref: any) => {
   const { href, className, ...other } = props
 
   return (
-    <Link ref={ref} href={href} className={className} {...other}>
+    <Link ref={ref} className={className} href={href} {...other}>
       {props.children}
     </Link>
   )

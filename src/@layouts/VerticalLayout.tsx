@@ -2,10 +2,11 @@
 import type { ReactNode } from 'react'
 
 // Third-party Imports
+import type { ChildrenType } from '@core/types'
+
 import classnames from 'classnames'
 
 // Type Imports
-import type { ChildrenType } from '@core/types'
 
 // Component Imports
 import LayoutContent from './components/vertical/LayoutContent'

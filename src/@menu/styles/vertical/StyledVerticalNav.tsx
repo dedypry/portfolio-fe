@@ -1,9 +1,10 @@
 // Third-party Imports
-import styled from '@emotion/styled'
 
 // Type Imports
 import type { VerticalNavState } from '../../contexts/verticalNavContext'
 import type { VerticalNavProps } from '../../components/vertical-menu/VerticalNav'
+
+import styled from '@emotion/styled'
 
 // Util Imports
 import { horizontalNavClasses, menuClasses, verticalNavClasses } from '../../utils/menuClasses'

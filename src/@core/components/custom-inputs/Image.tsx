@@ -1,4 +1,6 @@
 // MUI Imports
+import type { CustomInputImgProps } from './types'
+
 import Grid from '@mui/material/Grid2'
 import Checkbox from '@mui/material/Checkbox'
 import { styled } from '@mui/material/styles'
@@ -7,7 +9,6 @@ import { styled } from '@mui/material/styles'
 import classnames from 'classnames'
 
 // Type Imports
-import type { CustomInputImgProps } from './types'
 
 const Root = styled('div', {
   name: 'MuiCustomImage',
@@ -62,12 +63,12 @@ const CustomCheckboxImg = (props: CustomInputImgProps) => {
     return (
       <Grid {...gridProps}>
         <Root className={classnames({ active: selected.includes(value) })} onClick={() => handleChange(value)}>
-          {typeof img === 'string' ? <Image src={img} alt={alt ?? `checkbox-image-${value}`} /> : img}
+          {typeof img === 'string' ? <Image alt={alt ?? `checkbox-image-${value}`} src={img} /> : img}
           {type === 'radio' ? null : (
             <CheckboxInput
+              checked={selected.includes(value)}
               color={color}
               name={`${name}-${value}`}
-              checked={selected.includes(value)}
               onChange={() => handleChange(value)}
             />
           )}
